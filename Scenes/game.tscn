@@ -1,3 +1,19 @@
-[gd_scene format=3 uid="uid://dm1hy1y8pjhjm"]
+[gd_scene load_steps=3 format=3 uid="uid://dm1hy1y8pjhjm"]
+
+[ext_resource type="PackedScene" uid="uid://bqb4siqf3qp1j" path="res://Scenes/individual.tscn" id="1_86db4"]
+[ext_resource type="Script" path="res://Scripts/polygon.gd" id="2_n0xmd"]
 
 [node name="Game" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Individual" parent="." instance=ExtResource("1_86db4")]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+script = ExtResource("2_n0xmd")
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
+position = Vector2(-69.8222, 67.0289)
+polygon = PackedVector2Array(160.822, -15.0289, 137.822, -128.029, 41.8222, -239.029, 476, -43, 490, 253, -371.178, 189.971, 40.8222, 150.971, 193.822, 101.971)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
