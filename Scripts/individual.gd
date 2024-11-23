@@ -1,11 +1,11 @@
 extends CharacterBody2D
 
-@onready var polygon_2d: Polygon2D = $Polygon2D
-@onready var collision_polygon_2d: CollisionPolygon2D = $CollisionPolygon2D
-
 @export var speed = 150
 
-var target = position
+var target := position
+
+func _ready() -> void:
+	pass
 
 func _input(event):
 	# Use is_action_pressed to only accept single taps as input instead of mouse drags.
@@ -18,9 +18,9 @@ func _physics_process(delta):
 #Moves the individual towards the location of the mouse click
 func move_to_click():
 	#Rotating smoothly
-	var movement_vector = target - global_position
-	var angle = movement_vector.angle()
-	var current_rotation = global_rotation 
+	var movement_vector := target - global_position
+	var angle := movement_vector.angle() 
+	var current_rotation := global_rotation 
 	global_rotation = lerp_angle(current_rotation, angle, 0.04)
 	
 	#Gas!

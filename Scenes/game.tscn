@@ -1,13 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://dm1hy1y8pjhjm"]
 
-[ext_resource type="PackedScene" uid="uid://bqb4siqf3qp1j" path="res://Scenes/individual.tscn" id="1_86db4"]
+[ext_resource type="PackedScene" uid="uid://cmiufjd3keqqk" path="res://Scenes/hub.tscn" id="1_3k2fe"]
 [ext_resource type="Script" path="res://Scripts/polygon.gd" id="2_n0xmd"]
 
 [node name="Game" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Individual" parent="." instance=ExtResource("1_86db4")]
+[node name="Hub" parent="." instance=ExtResource("1_3k2fe")]
+position = Vector2(-494, -106)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 script = ExtResource("2_n0xmd")
