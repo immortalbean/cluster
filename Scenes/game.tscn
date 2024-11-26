@@ -1,20 +1,35 @@
-[gd_scene load_steps=3 format=3 uid="uid://dm1hy1y8pjhjm"]
+[gd_scene load_steps=4 format=3 uid="uid://dm1hy1y8pjhjm"]
 
 [ext_resource type="PackedScene" uid="uid://cmiufjd3keqqk" path="res://Scenes/hub.tscn" id="1_3k2fe"]
 [ext_resource type="Script" path="res://Scripts/polygon.gd" id="2_n0xmd"]
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_mdv7l"]
+vertices = PackedVector2Array(-414.289, 91, 104.547, -9.28125, 132.5, 89.8438, -0.046875, 132.289, -428.188, 172.82, -422.43, 121.352, 562.367, -399.203, 538.641, 364.039, 474.219, 275.617, 458.578, -55.1562, -444.648, 143.57, -408.43, -141.648, -400.289, -172, -20.6406, -237.07, 82.4375, -117.883, -422.43, 60.6484, -563.023, 310.93, -427.797, 209.602, -564, -325.688, -578.312, -410.75, -1.42188, -262.844, -430.648, -224.57, -461, -232.711, -430.648, -119.43, -444.648, 38.4297, -461, -111.289, -475, 30.2891, -408.43, -202.352, -491.352, -119.43, -505.352, 38.4297, -475, 151.711, -505.352, 143.57, -527.57, 121.352, -491.352, -224.57, -513.57, -202.352, -513.57, -141.648, -527.57, 60.6484, -521.711, -172, -535.711, 91)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5), PackedInt32Array(6, 7, 8, 9), PackedInt32Array(10, 5, 4), PackedInt32Array(11, 12, 13, 14, 1, 0, 15), PackedInt32Array(8, 7, 16, 17), PackedInt32Array(18, 19, 6, 20), PackedInt32Array(6, 9, 20), PackedInt32Array(18, 20, 13, 21, 22), PackedInt32Array(23, 11, 15, 24), PackedInt32Array(25, 23, 24, 26), PackedInt32Array(13, 12, 27), PackedInt32Array(28, 25, 26, 29), PackedInt32Array(30, 10, 4, 17, 16), PackedInt32Array(31, 30, 16), PackedInt32Array(32, 31, 16), PackedInt32Array(13, 27, 21), PackedInt32Array(18, 22, 33), PackedInt32Array(18, 33, 34), PackedInt32Array(35, 28, 29, 36), PackedInt32Array(18, 34, 37), PackedInt32Array(16, 18, 37, 35, 38), PackedInt32Array(38, 32, 16), PackedInt32Array(38, 35, 36)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-584, -324, -583, 330, 558, 385, 583, -419, -602, -431)])
+agent_radius = 20.0
+
 [node name="Game" type="Node2D"]
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+position = Vector2(-33, 66)
+navigation_polygon = SubResource("NavigationPolygon_mdv7l")
+use_edge_connections = false
 
-[node name="Hub" parent="." instance=ExtResource("1_3k2fe")]
-position = Vector2(-494, -106)
+[node name="Hub" parent="NavigationRegion2D" instance=ExtResource("1_3k2fe")]
+position = Vector2(-461, -172)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Hub2" parent="NavigationRegion2D" instance=ExtResource("1_3k2fe")]
+position = Vector2(-475, 91)
+hub_individual_limit = 0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="NavigationRegion2D"]
+position = Vector2(-36.8222, 1.0289)
 script = ExtResource("2_n0xmd")
 
-[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
-position = Vector2(-69.8222, 67.0289)
+[node name="Polygon2D" type="Polygon2D" parent="NavigationRegion2D/StaticBody2D"]
 polygon = PackedVector2Array(160.822, -15.0289, 137.822, -128.029, 41.8222, -239.029, 476, -43, 490, 253, -371.178, 189.971, 40.8222, 150.971, 193.822, 101.971)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="NavigationRegion2D/StaticBody2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
