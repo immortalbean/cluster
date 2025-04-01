@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bqb4siqf3qp1j"]
 
-[ext_resource type="Script" uid="uid://dhrbuo6u1xmfs" path="res://Scripts/individual.gd" id="1_w8nqd"]
+[ext_resource type="Script" uid="uid://dhrbuo6u1xmfs" path="res://Scripts/individual/individual.gd" id="1_w8nqd"]
 [ext_resource type="Script" uid="uid://uc7lh46mw7mt" path="res://Scripts/individual/visual.gd" id="2_0b3us"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0b3us"]
@@ -22,6 +22,7 @@ shape = SubResource("CircleShape2D_0b3us")
 
 [node name="navigation" type="NavigationAgent2D" parent="."]
 avoidance_enabled = true
+radius = 5.0
 debug_enabled = true
 
 [connection signal="velocity_computed" from="navigation" to="." method="_on_navigation_agent_2d_velocity_computed"]
