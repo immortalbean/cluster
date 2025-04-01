@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bqb4siqf3qp1j"]
+[gd_scene load_steps=5 format=3 uid="uid://bqb4siqf3qp1j"]
 
 [ext_resource type="Script" uid="uid://dhrbuo6u1xmfs" path="res://Scripts/individual/individual.gd" id="1_w8nqd"]
 [ext_resource type="Script" uid="uid://uc7lh46mw7mt" path="res://Scripts/individual/visual.gd" id="2_0b3us"]
+[ext_resource type="Texture2D" uid="uid://dnx46i5nfumeh" path="res://Assets/placeholder/individual.png" id="3_kt52q"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0b3us"]
 radius = 5.0
@@ -13,9 +14,10 @@ script = ExtResource("1_w8nqd")
 position = Vector2(-8, 0)
 script = ExtResource("2_0b3us")
 
-[node name="polygon" type="Polygon2D" parent="visual"]
-color = Color(1.59794e-05, 0.843723, 0.829535, 1)
-polygon = PackedVector2Array(24, 0, 8, 5, 3, 0, 8, -5)
+[node name="Individual" type="Sprite2D" parent="visual"]
+position = Vector2(8, 0)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_kt52q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_0b3us")
@@ -23,6 +25,5 @@ shape = SubResource("CircleShape2D_0b3us")
 [node name="navigation" type="NavigationAgent2D" parent="."]
 avoidance_enabled = true
 radius = 5.0
-debug_enabled = true
 
 [connection signal="velocity_computed" from="navigation" to="." method="_on_navigation_agent_2d_velocity_computed"]
