@@ -1,11 +1,14 @@
 extends CharacterBody2D
 
 @onready var navigation_agent_2d: NavigationAgent2D = $navigation
+@onready var visual: Node2D = $visual
 
 @export var speed := 150
 
 var target := position
 static var last_click_position = Vector2(0, 0)
+
+var passed_velocity: Vector2
 
 func _ready() -> void:
 	pass
@@ -17,6 +20,8 @@ func _input(event):
 
 func _physics_process(_delta):
 	move_to_target()
+	passed_velocity = navigation_agent_2d.velocity
+	visual.tick(passed_velocity)
 
 #Moves the individual towards the location of the mouse click
 func move_to_target():

@@ -3,9 +3,8 @@
 [ext_resource type="Script" uid="uid://dhrbuo6u1xmfs" path="res://Scripts/individual.gd" id="1_w8nqd"]
 [ext_resource type="Script" uid="uid://uc7lh46mw7mt" path="res://Scripts/individual/visual.gd" id="2_0b3us"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kt52q"]
-radius = 4.0
-height = 18.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_0b3us"]
+radius = 5.0
 
 [node name="Individual" type="CharacterBody2D"]
 script = ExtResource("1_w8nqd")
@@ -19,9 +18,7 @@ color = Color(1.59794e-05, 0.843723, 0.829535, 1)
 polygon = PackedVector2Array(24, 0, 8, 5, 3, 0, 8, -5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(4, 0)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_kt52q")
+shape = SubResource("CircleShape2D_0b3us")
 
 [node name="navigation" type="NavigationAgent2D" parent="."]
 avoidance_enabled = true
