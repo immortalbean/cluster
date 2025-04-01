@@ -10,5 +10,5 @@ func _ready() -> void:
 	collision_polygon_2d.rotation = polygon_2d.rotation
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass

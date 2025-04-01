@@ -11,7 +11,7 @@ const individual_scene: PackedScene = preload("res://Scenes/individual.tscn")
 var individuals: Array[Node2D]= []
 var spawn_points: Array[Marker2D] = []
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	label.text = str(health)
 	
 
