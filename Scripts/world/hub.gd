@@ -7,7 +7,7 @@ extends Sprite2D
 @export var health := 100
 @export var is_enemy := false
 
-const individual_scene: PackedScene = preload("res://Scenes/individual.tscn")
+const individual_scene: PackedScene = preload("res://Scenes/prefabs/individual.tscn")
 var individuals: Array[Node2D]= []
 var spawn_points: Array[Marker2D] = []
 

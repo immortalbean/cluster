@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dm1hy1y8pjhjm"]
 
-[ext_resource type="PackedScene" uid="uid://cmiufjd3keqqk" path="res://Scenes/hub.tscn" id="1_3k2fe"]
+[ext_resource type="PackedScene" uid="uid://cmiufjd3keqqk" path="res://Scenes/prefabs/hub.tscn" id="1_3k2fe"]
 [ext_resource type="Script" uid="uid://2n51ua8scmqk" path="res://Scripts/world/polygon.gd" id="2_n0xmd"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_mdv7l"]
