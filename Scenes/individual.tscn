@@ -1,20 +1,30 @@
-[gd_scene load_steps=2 format=3 uid="uid://bqb4siqf3qp1j"]
+[gd_scene load_steps=4 format=3 uid="uid://bqb4siqf3qp1j"]
 
-[ext_resource type="Script" path="res://Scripts/individual.gd" id="1_w8nqd"]
+[ext_resource type="Script" uid="uid://dhrbuo6u1xmfs" path="res://Scripts/individual.gd" id="1_w8nqd"]
+[ext_resource type="Script" uid="uid://uc7lh46mw7mt" path="res://Scripts/individual/visual.gd" id="2_0b3us"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kt52q"]
+radius = 4.0
+height = 18.0
 
 [node name="Individual" type="CharacterBody2D"]
 script = ExtResource("1_w8nqd")
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
+[node name="visual" type="Node2D" parent="."]
 position = Vector2(-8, 0)
+script = ExtResource("2_0b3us")
+
+[node name="polygon" type="Polygon2D" parent="visual"]
 color = Color(1.59794e-05, 0.843723, 0.829535, 1)
 polygon = PackedVector2Array(24, 0, 8, 5, 3, 0, 8, -5)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-5, 0, 0, -5, 16, 0, 0, 5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_kt52q")
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+[node name="navigation" type="NavigationAgent2D" parent="."]
 avoidance_enabled = true
 debug_enabled = true
 
-[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
+[connection signal="velocity_computed" from="navigation" to="." method="_on_navigation_agent_2d_velocity_computed"]

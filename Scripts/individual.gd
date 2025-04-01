@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
+@onready var navigation_agent_2d: NavigationAgent2D = $navigation
 
 @export var speed := 150
 
@@ -15,11 +15,11 @@ func _input(event):
 	if event.is_action_pressed(&"click"):
 		last_click_position = get_global_mouse_position()
 
-func _physics_process(delta):
-	move_to_click()
+func _physics_process(_delta):
+	move_to_target()
 
 #Moves the individual towards the location of the mouse click
-func move_to_click():
+func move_to_target():
 	navigation_agent_2d.target_position = last_click_position
 	var current_individual_position := global_position
 	var next_path_position := navigation_agent_2d.get_next_path_position()
