@@ -25,7 +25,7 @@ shape = SubResource("CircleShape2D_0b3us")
 
 [node name="navigation" type="NavigationAgent2D" parent="."]
 avoidance_enabled = true
-radius = 5.0
+radius = 8.0
 debug_enabled = true
 
 [connection signal="velocity_computed" from="navigation" to="." method="_on_navigation_agent_2d_velocity_computed"]
