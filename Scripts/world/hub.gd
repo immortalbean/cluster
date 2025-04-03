@@ -2,10 +2,12 @@ extends Sprite2D
 
 @onready var game: Node2D = $".."
 @onready var label: Label = $Label
+@onready var timer: Timer = $Timer
 
 @export var hub_individual_limit := 10
-@export var health := 100
-@export var is_enemy := false
+@export var health : = 100
+@export var is_enemy : = false
+@export var time_between: float = 1
 
 const individual_scene: PackedScene = preload("res://Scenes/prefabs/individual.tscn")
 var individuals: Array[Node2D]= []
@@ -19,6 +21,7 @@ func _ready() -> void:
 	for i in get_children():
 		if i is Marker2D:
 			spawn_points.append(i)
+	timer.wait_time = time_between
 
 
 func _on_timer_timeout() -> void:

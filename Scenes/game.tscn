@@ -18,6 +18,8 @@ use_edge_connections = false
 
 [node name="Hub" parent="NavigationRegion2D" instance=ExtResource("1_3k2fe")]
 position = Vector2(-461, -172)
+hub_individual_limit = 79741
+time_between = 0.01
 
 [node name="Hub2" parent="NavigationRegion2D" instance=ExtResource("1_3k2fe")]
 position = Vector2(-475, 91)
